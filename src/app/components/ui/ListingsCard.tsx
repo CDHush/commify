@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 type ListingCardProps = {
   artistName: string;
   artistInitials: string;
@@ -57,7 +59,8 @@ export default function ListingCard({
   const scheme = colorSchemes[colorScheme];
 
   return (
-    <div className="bg-white border-[2.5px] border-[#D3D1C7] rounded-[18px] overflow-hidden cursor-pointer hover:-translate-y-1 hover:border-[#7F77DD] transition-all">
+    <Link href={`/artists/${artistName}`}>
+      <div className="bg-white border-[2.5px] border-[#D3D1C7] rounded-[18px] overflow-hidden cursor-pointer hover:-translate-y-1 hover:border-[#7F77DD] transition-all">
       {/* Card image area */}
       <div
         className={`w-full h-[120px] ${scheme.bg} border-b-[2.5px] border-[#D3D1C7] flex items-center justify-center relative`}
@@ -99,6 +102,7 @@ export default function ListingCard({
           </span>
         </div>
       </div>
-    </div>
+      </div>
+    </Link>
   );
 }
